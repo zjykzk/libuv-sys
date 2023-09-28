@@ -317,6 +317,7 @@ fn generate_bindings<P: AsRef<Path>>(include_path: &P) -> Result<()> {
         .header(header_path.to_string_lossy())
         .clang_arg(format!("-I{}", include_path.display()))
         .allowlist_type("uv_.+")
+        .allowlist_type("in6_addr_union_")
         .allowlist_function("uv_.+")
         .allowlist_var("(?i)uv_.+")
         .allowlist_var("AF_.+")
